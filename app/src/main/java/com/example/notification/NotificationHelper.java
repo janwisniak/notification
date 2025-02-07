@@ -17,8 +17,31 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
 public class NotificationHelper {
-    private  static final String CHANNEL_ID="default_channel";
+    private  static final String CHANNEL_ID_LOW="low_importance_channel";
+    private  static final String CHANNEL_ID_DEFAULT="default_importance_channel";
+    private  static final String CHANNEL_ID_HIGH="high_importance_channel";
     private static final String CHANNEL_NAME = "Kanał powiadomień";
+
+    public static void createNotificationChannels(Context context){
+        NotificationManager notificationManager = (NotificationManager)
+                context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+                NotificationChannel channelLow = new NotificationChannel(CHANNEL_ID_LOW,
+                        CHANNEL_NAME, NotificationManager.IMPORTANCE_LOW);
+                NotificationChannel channelDefault = new NotificationChannel(CHANNEL_ID_DEFAULT,
+                        CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
+                NotificationChannel channelHigh = new NotificationChannel(CHANNEL_ID_HIGH,
+                        CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH);
+
+                if(notificationManager!= null){
+                    notificationManager.createNotificationChannel(channelLow);
+                    notificationManager.createNotificationChannel(channelDefault);
+                    notificationManager.createNotificationChannel(channelHigh);
+                }
+
+            }
+    }
     
     public static void sendNotification(int Notification_ID, AppCompatActivity activity,
                                         String title, String message, int styleType,
