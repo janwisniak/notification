@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                     .setSmallIcon(R.drawable.ic_launcher_background)
                     .setContentTitle("Nowe powiadomienie 3TP")
-                    .setStyle(new NotificationCompat.BigTextStyle().bigText("Tresc powiadomienia dla klasy 3TPTresc powiadomienia dla klasy 3TPTresc powiadomienia dla klasy 3TPTresc powiadomienia dla klasy 3TPTresc powiadomienia dla klasy 3TPTresc powiadomienia dla klasy 3TP"))
+                    .setStyle(new NotificationCompat.BigTextStyle().bigText("Tresc"))
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                     .setAutoCancel(true);
 

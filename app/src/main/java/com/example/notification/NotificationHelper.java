@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.icu.text.CaseMap;
 import android.os.Build;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,10 +16,10 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
 public class NotificationHelper {
-    private  static final String CHANNEL_ID_LOW="low_importance_channel";
-    private  static final String CHANNEL_ID_DEFAULT="default_importance_channel";
-    private  static final String CHANNEL_ID_HIGH="high_importance_channel";
-    private static final String CHANNEL_NAME = "Kanał powiadomień";
+    public static final String CHANNEL_ID_LOW="low_importance_channel";
+    public static final String CHANNEL_ID_DEFAULT="default_importance_channel";
+    public static final String CHANNEL_ID_HIGH="high_importance_channel";
+    public static final String CHANNEL_NAME = "Kanał powiadomień";
 
     public static void createNotificationChannels(Context context){
         NotificationManager notificationManager = (NotificationManager)
@@ -69,7 +68,7 @@ public class NotificationHelper {
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                         .setAutoCancel(true);
         {
-            
+
         }
         if (largeIconResID != null) {
             Bitmap largeIcon = BitmapFactory.decodeResource(activity.getResources(), largeIconResID);
@@ -94,7 +93,7 @@ public class NotificationHelper {
                 builder.setStyle(inboxStyle);
                 break;
         }
-        
-        
+
+
     }
 }
